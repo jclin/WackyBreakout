@@ -5,16 +5,12 @@ using UnityEngine.Events;
 public sealed class GameInitializer : MonoBehaviour
 {
     private List<ComponentType> gameComponents;
-    private AudioSource audioSource;
     private GameReady gameReadyEvent;
 
     private void Awake()
     {
         gameComponents = new List<ComponentType> { ComponentType.BallSpawner, ComponentType.HUD, ComponentType.LevelBuilder };
         gameReadyEvent = new GameReady();
-
-        audioSource = gameObject.AddComponent<AudioSource>();
-        AudioManager.Initialize(audioSource);
 
         ConfigurationUtils.Initialize();
         ConfigurationUtils.ConfigurationData = new ConfigurationData();

@@ -3,8 +3,14 @@ using UnityEngine;
 
 public static class AudioManager
 {
-    static AudioSource audioSource;
-    static Dictionary<AudioClipName, AudioClip> audioClips = new Dictionary<AudioClipName, AudioClip>();
+    public static bool Initialized
+    {
+        get;
+        private set;
+    }
+
+    private static AudioSource audioSource;
+    private static Dictionary<AudioClipName, AudioClip> audioClips = new Dictionary<AudioClipName, AudioClip>();
 
     public static void Initialize(AudioSource source)
     {
@@ -26,6 +32,8 @@ public static class AudioManager
         AddClip(AudioClipName.GameWon, "GameWon");
 
         AddClip(AudioClipName.MenuButtonClicked, "MenuButtonClicked");
+
+        Initialized = true;
     }
 
     public static void Play(AudioClipName name)
