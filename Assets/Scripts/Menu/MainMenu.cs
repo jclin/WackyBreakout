@@ -18,7 +18,7 @@ public sealed class MainMenu : Menu
 
     public void HandleQuitButtonOnClickEvent()
     {
-        StartCoroutine(PlayClickAudioCoroutine());
+        AudioManager.Play(AudioClipName.MenuButtonClicked);
         Application.Quit();
     }
 }
